@@ -1,0 +1,434 @@
+<! -- WinSxS Techvortal 2023, nieidealne ale postarane xD -->
+<! -- zgodne z FF/Edge i prawie z MyPalem 28.9 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Windows XP</title>
+  <style>
+    /* Reset margin and padding for all elements */
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%; /* Set height for parent containers */
+    }
+
+    body {
+      font-family: Tahoma, sans-serif;
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+overflow: hidden;
+    }
+
+    #left-panel {
+      width: 208px;
+      background-color: #789DE5;
+      height: 100%;
+      display: flex; /* Use flex to create inner layout */
+      flex-direction: column; /* Stack inner elements vertically */
+      align-items: center; /* Center content horizontally */
+overflow: hidden;
+    }
+
+    .left-inner {
+      width: 185px;
+      background-color: #D6DFF7;
+      padding: 0; /* No padding for the container */
+      box-sizing: border-box; /* Include padding in width calculation */
+      margin-top: 15px; /* Add margin to lower the div */
+      display: flex; /* Use flex to split inner content */
+      flex-direction: column; /* Stack inner content vertically */
+      position: relative; /* Create positioning context for the image overlay */
+    }
+
+    .left-inner img {
+      width: 100%; /* Set image width to 100% of container */
+      height: auto; /* Maintain aspect ratio */
+      display: block; /* Display image as block */
+    }
+
+    .content-section {
+      flex: 1; /* Take available space */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid white;
+      border-top: none; /* Remove top border */
+      padding: 10px; /* Add padding to the section content */
+      box-sizing: border-box; /* Include padding in width calculation */
+      font-size: 8pt;
+      color: #215DC6;
+  display: flex; /* Show content-section by default */
+  transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1); /* Use cubic-bezier for smoother transition */  max-height: 200px; /* Set a maximum height for the content section */
+  overflow: hidden; /* Hide overflow content */
+    }
+
+.content-section:target {
+  height: 200px;}
+
+.content-section.hidden {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+    .overlay-text {
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      font-family: Tahoma, sans-serif;
+      font-size: 8pt;
+      font-weight: bold;
+      color: #215DC6;
+      cursor: pointer; /* Add cursor pointer to indicate interactivity */
+      transition: opacity 0.3s ease-in-out; /* Add transition for opacity */
+    }
+
+.overlay-text button {
+  transition: transform 0.3s ease-in-out; /* Add transition for transform property */
+  transform-origin: center;
+}
+
+.overlay-text.active button {
+      opacity: 1;
+}
+
+    .section {
+      display: flex;
+      align-items: center; /* Align items vertically */
+    }
+
+    .section img {
+      width: 16px; /* Set image width to 16px */
+      height: 16px; /* Set image height to 16px */
+      margin-right: 6px; /* Add 6px margin to the right of the image */
+      vertical-align: middle; /* Align the image vertically */
+    }
+
+#right-panel {
+  flex: 1;
+  background-color: #FFFFFF;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  background: #ffffff url("security.png") no-repeat right bottom 20px;
+  font-size: 10pt;
+  overflow: auto; /* Enable scrolling within the right-panel */
+  height: 100%; /* Set the height to 100% to take up all available vertical space */
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+
+#right-panel::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+    .section {
+      margin: 2px 0; /* Adjust margins for each section */
+    }
+
+a:link {
+  text-decoration: none;
+  color: #215DC6;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #215DC6;
+}
+
+#right-panel a:link {
+  text-decoration: none;
+  color: #000000;
+}
+
+#right-panel a:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
+    #content {
+      display: flex; /* Keep left and right panels side by side */
+      flex: 1; /* Take remaining vertical space */
+overflow: hidden;
+    }
+
+
+button {
+  border: none;
+  appearance: none;
+      font-family: Tahoma, sans-serif;
+      font-size: 8pt;
+      font-weight: bold;
+      color: #215DC6;
+  background: none;
+  cursor: default;
+}
+
+
+
+
+    #top-bar {
+      background-color: #F0EDDE;
+      height: 38px;
+      width: 100%;
+      font-size: 8pt;
+      margin-left: -4px;
+    }
+
+    #top-bar2 {
+      background: url("bar.png");
+      background-size:100% 100%;
+      height: 29px;
+      width: 100%;
+      font-size: 8pt;
+    }
+
+    #top-bar img {
+      width: 24px; /* Set image width to 100% of container */
+      height: 24px; /* Maintain aspect ratio */
+      margin-right: 4px;
+      margin-left: 8px;
+
+    }
+
+
+
+
+.box {
+   display: flex;
+   align-items:center;
+   padding-left: 6px;
+}
+
+
+.box2 {
+   display: flex;
+   align-items:center;
+}
+
+
+
+.left{
+	left: 0px;
+        position: relative;  
+}
+
+.right{
+	right: 0px;
+        position: fixed;  
+}
+
+.iconbar
+{
+	position: absolute;
+	margin-left: 6px;
+	font-family: Trebuchet MS;
+	color: white;
+	font-size: 10pt;
+	font-weight: bold;	
+}
+.iconbar2
+{
+	position: absolute;
+	margin-left: 22px;
+	margin-top: 1px;
+	font-family: Trebuchet MS;
+	color: white;
+	font-size: 10pt;
+	font-weight: bold;
+	text-shadow: 1px 1px #5f5f5f;	
+}
+.iconbar3
+{
+	position: absolute;
+	right: 6px;	
+}
+
+    .iconbar img {
+      height: 16px;
+	width: 16px; /* Maintain aspect ratio */
+    }
+
+    .iconbar3 img {
+      height: 21px;
+    }
+
+  </style>
+</head>
+
+
+
+
+<body>
+
+  <div id="top-bar2" class="box2">
+<div class="left"><img src="barleft.png" style="vertical-align:middle"></div>
+<div class="iconbar"><img src="security center.png" style="vertical-align:middle"></div>
+<div class="iconbar2">&nbspSecurity Center</div>
+<div class="right"><img src="barright.png" style="vertical-align:middle"></div>
+<div class="iconbar3"><img src="buttons.png" style="vertical-align:middle">
+
+<!-- wersja druga z ikonami hd, gorzej wygląda przy 100%, ale lepiej przy 200%+: <img src="minimize.png" style="vertical-align:middle"> <img src="maximize.png" style="vertical-align:middle"> <img src="exit.png" style="vertical-align:middle">-->
+
+</div>
+
+
+  </div>
+
+<div id="top-bar" class="box">
+<img src="back.png" style="vertical-align:middle"><span>Back &#9662;</span>
+&#10240<img src="forward.png" style="vertical-align:middle"><span></span>
+&#10240<div style="border-left:1px solid #C4C6B9;height:30px"></div>
+<img src="home.png" style="vertical-align:middle"><span>Home</span>
+&#10240
+<img src="help.png" style="vertical-align:middle"><span>Help</span>
+&#10240
+
+  </div>
+
+
+<div id="content">
+  <div id="left-panel">
+<div class="left-inner">
+      <img id="toggle-button1" src="rozw.png" alt="Image" onclick="toggleContent('content-section1', 'overlay-text1')">
+      <div class="overlay-text" id="overlay-text1"><button onclick="toggleContent('content-section1', 'overlay-text1')">Protection status</button></div>
+      <div class="content-section" id="content-section1">
+        <div class="section">
+          <img src="ok.png" alt="Icon">
+          <span><b>Real-time protection:</b> Active</span>
+        </div>
+        <div class="section">
+          <img src="ok.png" alt="Icon">
+          <span><br><b>Virus & spyware definitions:</b> Up to date</span>
+        </div>
+
+<div class="section">
+          <span><br><b>Database creation:</b> <br>26 Oct 2001 at 16:46</span></div>
+
+      </div>
+    </div>
+
+
+    <div class="left-inner">
+      <img id="toggle-button2" src="rozw.png" alt="Image" onclick="toggleContent('content-section2', 'overlay-text2')">
+      <div class="overlay-text" id="overlay-text2"><button onclick="toggleContent('content-section2', 'overlay-text2')">Scan for threats</button></div>
+      <div class="content-section" id="content-section2">
+        <div class="section">
+          <img src="search.png" alt="Icon">
+          <span><a href="#">Scan for threats</a></span>
+        </div>
+        <div class="section">
+          <img src="history.png" alt="Icon">
+          <span><a href="#">Threats history</a></span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="left-inner">
+      <img id="toggle-button3" src="rozw.png" alt="Image" onclick="toggleContent('content-section3', 'overlay-text3')">
+      <div class="overlay-text" id="overlay-text3"><button onclick="toggleContent('content-section3', 'overlay-text3')">Protection settings</button></div>
+      <div class="content-section" id="content-section3">
+        <div class="section">
+          <img src="control.png" alt="Icon">
+          <span>Global settings</span>
+        </div>
+        <div class="section">
+          <img src="virus.png" alt="Icon">
+          <span>Antivirus protection</span>
+        </div>
+        <div class="section">
+          <img src="firewall.png" alt="Icon">
+          <span>Firewall protection</span>
+        </div>
+        <div class="section">
+          <img src="smartscreen.png" alt="Icon">
+          <span>SmartScreen</span>
+        </div>
+
+        <div class="section">
+          <img src="mail.png" alt="Icon">
+          <span>E-mail protection</span>
+        </div>
+
+        <div class="section">
+          <img src="dep.png" alt="Icon">
+          <span>Data Execution Prevention</span>
+        </div>
+        <div class="section">
+          <img src="padlock.png" alt="Icon">
+          <span>Private Vault</span>
+        </div>
+        <div class="section">
+          <img src="restore.png" alt="Icon">
+          <span>System Restore</span>
+        </div>
+        <div class="section">
+          <img src="wu.png" alt="Icon">
+          <span>Windows Update</span>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+
+
+  <div id="right-panel">
+
+<div class="box">
+    <img src="ok.png" style="height:46px;width:46px;">
+    <span style="margin-left:20px"><b>Your computer is up to date and secure.</b></span>
+</div>
+<hr><br>
+<div class="box">
+    <span style="margin-left:20px">Microsoft Security Center is monitoring your computer and helping to protect it.</span>
+</div>
+<br><br><br>
+<div class="box">
+    <img src="go.png" style="height:24px; width:24px">
+    <span style="margin-left:20px"><b><a href="ffe">Perform a scan of the entire hard disk for threats</a></b></span>
+</div><br>
+<div class="box">
+    <img src="go.png" style="height:24px; width:24px">
+    <span style="margin-left:20px"><b>Perform an update to your operating system</b></span>
+</div>
+
+
+
+
+
+
+
+
+<!-- fix przeciwko ucinaniu ostatniej linijki --> &nbsp<br>&nbsp<br>  </div>
+</div>
+  <script>
+    function toggleContent(sectionId, overlayTextId) {
+      var contentSection = document.getElementById(sectionId);
+      var overlayText = document.getElementById(overlayTextId);
+      var toggleButton = document.getElementById(`toggle-button${sectionId.slice(-1)}`);
+      
+      if (contentSection.classList.contains('hidden')) {
+        contentSection.classList.remove('hidden'); // Show the content section
+        overlayText.classList.add('active'); // Add active class
+        toggleButton.src = 'rozw.png';
+      } else {
+        contentSection.classList.add('hidden'); // Hide the content section completely
+        overlayText.classList.remove('active'); // Remove active class
+        toggleButton.src = 'zw.png';
+      }
+    }
+  </script>
+
+
+</body>
+</html>
